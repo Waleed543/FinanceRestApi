@@ -7,7 +7,7 @@ Copyright (c) 2019 - present AppSeed.us
 import os, logging 
 
 # Flask modules
-from flask               import render_template, request, url_for, redirect, send_from_directory
+from flask               import render_template, request, url_for, redirect, send_from_directory, jsonify
 from flask_login         import login_user, logout_user, current_user, login_required
 from werkzeug.exceptions import HTTPException, NotFound, abort
 from jinja2              import TemplateNotFound
@@ -16,6 +16,7 @@ from jinja2              import TemplateNotFound
 from app        import app, lm, db, bc
 from app.models import Users
 from app.forms  import LoginForm, RegisterForm
+import requests,json
 
 # provide login manager with load_user callback
 @lm.user_loader
@@ -112,12 +113,18 @@ def login():
 @app.route('/<path>')
 def index(path):
 
-    #if not current_user.is_authenticated:
-    #    return redirect(url_for('login'))
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    company='AAPL'
+    limit='120'
+    key='5a4d13db4fa132aea967ed8952bb72fb'
+    api_url='https://financialmodelingprep.com/api/v3/income-statement/{company}?limit={limit}&apikey={key}'
+    api_formated= api_url.format(company=company,limit=limit,key=key)
 
+    resp=requests.get(api_formated)
+    response_dict=resp.json()
     try:
-
-        return render_template( 'index.html' )
+        return render_template( 'index.html', apiResp=response_dict[0]['symbol'])
     
     except TemplateNotFound:
         return render_template('page-404.html'), 404

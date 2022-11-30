@@ -15,7 +15,6 @@
 </head>
 <body>
 
-    {% include 'navigation.html' %}
 
     <main>
 
@@ -31,6 +30,10 @@
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         Your credentials: {{ current_user.email }}
                     </div>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                       {{apiResp}}
+                    </div>
+
                 {% endif %}
 
                 <br />
