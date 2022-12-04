@@ -124,7 +124,7 @@ def index(path):
     resp=requests.get(api_formated)
     response_dict=resp.json()
     try:
-        return render_template( 'index.html', apiResp=response_dict[0]['symbol'])
+        return render_template( 'index.html', apiResp=response_dict[0])
     
     except TemplateNotFound:
         return render_template('page-404.html'), 404
