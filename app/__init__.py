@@ -26,7 +26,8 @@ lm.init_app(app)       # init the login manager
 # Setup database
 @app.before_first_request
 def initialize_database():
-    db.create_all()
+    # db.create_all()
+    return 1
 
 # Import routing, models and Start the App
 from app import views, models
