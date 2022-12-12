@@ -17,5 +17,5 @@ class Config():
     SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_007')
 
     # This will create a file in <app> FOLDER
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@34.89.18.167/miniprojsql'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@34.89.18.167/miniprojsql'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
