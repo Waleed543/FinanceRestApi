@@ -1,21 +1,21 @@
-# [Flask User Authentication](https://blog.appseed.us/flask-user-authentication-free-sample/)
+# [Finance REST API](https://miniproject.cf/)
 
-Open-source Flask project that implements a simple authentication system using `Flask-Login` library - Features:
-
-- ✅ `Up-to-date dependencies`
-- ✅ Authentication layer: `Flask-Login`
-- ✅ UI: Bootstrap5 via `CDN`
-- ✅ Free [Support](https://appseed.us/support/) via `Email` and `Discord`.
+Cloud Computing mini-project that implements a cloud application which provides useful financial insights related of stock market listed companies.
 
 <br />
 
-## [Black Friday](https://appseed.us/discounts/) - `75%OFF`
 
-> The campaign is active until `30.NOV` and applies to all products and licenses.
+The mini project works on the following aspects of Cloud applications:
+<ul>
+<li>REST-based service interface for CRUD operations </li>
 
-[![AppSeed - Black Friday 2022 Campaign, 75% OFF Discount (all products).](https://user-images.githubusercontent.com/51070104/201829599-9fe6bdd7-3f19-46f3-9115-962eeb13bf29.jpg)](https://appseed.us/discounts/)
+<li>Interaction with external REST services.  </li>
+
+<li>Use of an external Cloud database for persisting information. (GCP used here). </li>
+</ul>
 
 <br />
+
 
 ## Build from sources
 
@@ -23,8 +23,8 @@ Open-source Flask project that implements a simple authentication system using `
 
 ```bash
 $ # Clone the sources
-$ git clone https://github.com/app-generator/sample-flask-auth-session.git
-$ cd sample-flask-auth-session
+$ git clone https://github.com/KarshVashi/FinanceRestApi
+$ cd FinanceRestApi
 ```
 
 <br />
@@ -63,7 +63,7 @@ $ (Powershell) $env:FLASK_APP = ".\run.py"
 
 <br />
 
-> **Step #5** - Create Tables (SQLite persistance)
+<!-- > **Step #5** - Create Tables (SQLite persistance)
 
 ```bash
 $ # Create tables
@@ -72,9 +72,9 @@ $ >>> from app import db
 $ >>> db.create_all()
 ```
 
-<br />
+<br /> -->
 
-> **Step #6** - (optional) Enable DEBUG Environment (local development)
+> **Step #5** - (optional) Enable DEBUG Environment (local development)
 
 ```bash
 $ # Set up the DEBUG environment
@@ -85,7 +85,7 @@ $ # (Powershell) $env:FLASK_ENV = "development"
 
 <br />
 
-> **Step #7** - Start the project
+> **Step #6** - Start the project
 
 ```bash
 $ # Run the application
@@ -96,9 +96,7 @@ $
 $ # Access the app in browser: http://127.0.0.1:5000/
 ```
 
-<br />
 
-![Flask User Authentication - Free sample provided by AppSeed.](https://user-images.githubusercontent.com/51070104/134959525-3ad0c71c-27e4-45f7-b7b9-53b76f3884bf.png)
 
 <br />
 
@@ -118,8 +116,10 @@ The project has a super simple structure, represented as bellow:
    |    |    |-- index.html           # Index File
    |    |    |-- login.html           # Login Page
    |    |    |-- register.html        # Registration Page
-   |    |    
-   |    |
+   |    |    |-- navigation.html 
+   |    |    |-- footer.html   
+   |    | 
+   |    |     
    |   config.py                      # Provides APP Configuration 
    |   forms.py                       # Defines Forms (login, register) 
    |   models.py                      # Defines app models 
@@ -132,13 +132,3 @@ The project has a super simple structure, represented as bellow:
 ```
 
 <br />
-
-## Resources
-
-- Free [Admin Dashboards](https://appseed.us/admin-dashboards/open-source) - index provided by AppSeed
-- [Flask Social Login](https://blog.appseed.us/flask-social-login-with-github/) - blog article (includes a free sample)
-
-<br />
-
----
-[Flask User Authentication](https://blog.appseed.us/flask-user-authentication-free-sample/) - Free sample provided by **AppSeed**.
