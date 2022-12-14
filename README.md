@@ -132,3 +132,6 @@ The project has a super simple structure, represented as bellow:
 ```
 
 <br />
+
+Credits for Login and Register auth system:
+https://github.com/app-generator/sample-flask-auth-session.git
