@@ -122,7 +122,7 @@ def index(path):
     if form.validate_on_submit():
         company=form.name._value()
     limit='120'
-    key='5a4d13db4fa132aea967ed8952bb72fb'
+    key='45ea778acb931dfa0db877178a7ad6b7'
     api_url='https://financialmodelingprep.com/api/v3/income-statement/{company}?limit={limit}&apikey={key}'
     api_formated= api_url.format(company=company,limit=limit,key=key)
 
