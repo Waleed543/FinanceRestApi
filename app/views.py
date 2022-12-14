@@ -15,7 +15,7 @@ from jinja2              import TemplateNotFound
 # App modules
 from app        import app, lm, db, bc
 from app.models import Users
-from app.forms  import LoginForm, RegisterForm
+from app.forms  import LoginForm, RegisterForm, StockForm
 import requests,json
 
 # provide login manager with load_user callback
@@ -109,13 +109,18 @@ def login():
     return render_template( 'login.html', form=form, msg=msg )
 
 # App main route + generic routing
-@app.route('/', defaults={'path': 'index'})
+@app.route('/', defaults={'path': 'index'}, methods=['GET', 'POST'])
 @app.route('/<path>')
 def index(path):
+    form = StockForm(request.form)
+
 
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
+
     company='AAPL'
+    if form.validate_on_submit():
+        company=form.name._value()
     limit='120'
     key='5a4d13db4fa132aea967ed8952bb72fb'
     api_url='https://financialmodelingprep.com/api/v3/income-statement/{company}?limit={limit}&apikey={key}'
@@ -123,8 +128,11 @@ def index(path):
 
     resp=requests.get(api_formated)
     response_dict=resp.json()
+    if(response_dict==[]):
+        response_dict='Not Found'
+
     try:
-        return render_template( 'index.html', apiResp=response_dict[0])
+        return render_template( 'index.html', apiResp=response_dict ,form=form)
     
     except TemplateNotFound:
         return render_template('page-404.html'), 404

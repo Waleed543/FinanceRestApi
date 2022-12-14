@@ -7,11 +7,9 @@
 <title>Finance REST API</title>
 <style>
     table {
-    border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -64,10 +62,11 @@ tbody tr:last-of-type {
                     </div>
                 <form method="post" action="" class="p-4 p-md-5 border rounded-3 bg-light">
 
+                    {{ form.hidden_tag() }}
                         <br />
 
                         <div class="form-floating mb-3">
-                            {{ form.stockname(class="form-control") }}
+                            {{ form.name(class="form-control") }}
                             <label for="floatingInput">Company name</label>
                         </div>
 
@@ -81,27 +80,43 @@ tbody tr:last-of-type {
                         
                 </form>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                       {{apiResp}}
-                </div>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    
-                    <table> 
+                    {% if apiResp == 'Not Found' %}
+                    <p>Not Found</p>
+                    {% else %}
+                     <div class="d-grid gap-2 justify-content-sm-center">
+                         {% for table in apiResp %}
+
+                         <div class="row">
+                    <table class="col-sm-10">
                         <thead>
                             <tr >
-                                <th colspan="2">APPL</th>
+
+                                <th >Key</th>
+
+
+                                <th >Value</th>
+
                             </tr>
                         </thead>
-                        
+
+                        {% for row in table %}
                         <tr>
                             <td>
-                                closing price 
+                                {{row}}
                             </td>
                             <td>
-                                150
+                                {{table[row]}}
                             </td>
                         </tr>
+                        {% endfor %}
                     </table>
+                             </div>
+                         {% endfor %}
                 </div>
+                    {% endif %}
+
+                </div>
+
 
 
                 {% endif %}
