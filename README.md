@@ -29,21 +29,8 @@ $ cd FinanceRestApi
 
 <br />
 
-> **Step #2** - Create a virtual environment
 
-```bash
-$ # Virtualenv modules installation (Unix based systems)
-$ virtualenv env
-$ source env/bin/activate
-$
-$ # Virtualenv modules installation (Windows based systems)
-$ # virtualenv env
-$ # .\env\Scripts\activate
-```
-
-<br />
-
-> **Step #3** - Install dependencies
+> **Step #2** - Install dependencies
 
 ```bash
 $ # Install requirements
@@ -52,18 +39,7 @@ $ pip3 install -r requirements.txt
 
 <br />
 
-> **Step #4** - Set Up Environment
-
-```bash
-$ # Set the FLASK_APP environment variable
-$ (Unix/Mac) export FLASK_APP=run.py
-$ (Windows) set FLASK_APP=run.py
-$ (Powershell) $env:FLASK_APP = ".\run.py"
-```
-
-<br />
-
-<!-- > **Step #5** - Create Tables (SQLite persistance)
+<!-- > **Step #3** - Create Tables (SQLite persistance)
 
 ```bash
 $ # Create tables
@@ -74,7 +50,7 @@ $ >>> db.create_all()
 
 <br /> -->
 
-> **Step #5** - (optional) Enable DEBUG Environment (local development)
+> **Step #4** - (optional) Enable DEBUG Environment (local development)
 
 ```bash
 $ # Set up the DEBUG environment
@@ -85,7 +61,7 @@ $ # (Powershell) $env:FLASK_ENV = "development"
 
 <br />
 
-> **Step #6** - Start the project
+> **Step #5** - Start the project
 
 ```bash
 $ # Run the application
